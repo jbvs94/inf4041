@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :beer_geeks
   resources :breweries
   resources :beers
   root to: "beers#index"
