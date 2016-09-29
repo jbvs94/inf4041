@@ -1,4 +1,4 @@
-<%= form_for(@beer) do |f| %>
+<!-- <%= form_for(@beer) do |f| %>
   <% if @beer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
@@ -31,3 +31,18 @@
     <%= f.submit %>
   </div>
 <% end %>
+-->
+
+<%= semantic_form_for @beer do |f| %>
+  <%= f.inputs :name, :description %>
+
+
+  <%= f.semantic_fields_for :notes do |fn| %>
+    <%= fn.input :star %>
+    <%= fn.input :beer_geek, collection: BeerGeek.all %>
+  <% end %>
+
+  <%= f.actions %>
+<% end %>
+
+

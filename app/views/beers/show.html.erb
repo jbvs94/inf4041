@@ -1,23 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Name :</strong>
   <%= @beer.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Description :</strong>
   <%= @beer.description %>
 </p>
 
 <p>
-  <strong>Note:</strong>
+  <strong>Note :</strong>
   <%= @beer.note %>
 </p>
 
 <p>
-  <strong>Brewery:</strong>
+  <strong>Brewery :</strong>
   <%= @beer.brewery_id %>
+</p>
+
+<p>
+  <strong>Notes :</strong>
+    <% @beer.notes.each do |note| %>
+  		<%= note.beer_geek.nom + " " + note.star.to_s %>
+  	<% end %>
+</p>
+
+<p>
+	<strong>Moyenne :</strong>
+	<% @moyenne %>
+  	
 </p>
 
 <%= link_to 'Edit', edit_beer_path(@beer) %> |
